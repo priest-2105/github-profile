@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+*{
+    box-sizing: border-box;
+}
+body{
+    font-family: "Roboto Flex", sans-serif;
+    margin: 0;
+    background-image: url('./snow.jpg');
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    flex-direction: column;
+}
+h1{
+    font-size: 4rem;
+    margin-top: -10rem;
+    font-weight: normal;
+}
+.countdown-container{
+    display: flex; flex-wrap:wrap; justify-content: center;}
+.big-text{
+    font-size: 6rem;
+    line-height: 1;
+    margin: 0 2rem;
+    margin: 1rem 1rem;
+    font-weight: bold;
+}.countdown-el {
+    text-align: center;
+}
+.countdown-el span{
+    font-size: 1.5rem;
+}        .floating-info {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+        #countdownDate {
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            width: 200px;
+            margin-bottom: 10px;
+        }
