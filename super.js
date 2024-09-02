@@ -10,12 +10,29 @@ getUser('priest-2105')
 
 async function getUser(username){
 
-    const resp = await fetch(APIURL + username)
-    const respData = await resp.json();
+    try {
+        // Make a request to the GitHub API
+        const resp = await fetch(APIURL + username);
+        
+        // Check if the response status is 404 (Not Found)
+        if (resp.status === 404) {
+            // If the user is not found, throw an error
+            throw new Error('User not found');
+        }
 
-    createUserCard(respData);
-
-    getRepos(username);
+        // If the user is found, parse the response data
+        const respData = await resp.json();
+        
+        // Create the user card with the fetched data
+        createUserCard(respData);
+        
+        // Fetch and display the user's repositories
+        getRepos(username);
+    } catch (error) {
+      
+        // Display an error message if the user is not found
+        main.innerHTML = `<p style="color: red; font-weight: bold;">${error.message}</p>`;
+    }
 }
 
 async function getRepos(username){
@@ -90,6 +107,13 @@ form.addEventListener('submit', (e) => {
         getUser(user);
 
         search.value = '';
+    }else{
+     const message = document.createElement('div')
+     message.innerHTML = 'Enter Valid UserName';
+
+
+     main.appendChild(message);
+
     }
 
 
